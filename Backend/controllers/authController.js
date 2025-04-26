@@ -169,7 +169,7 @@ exports.updateProfile = catchAsyncError(async (req, res, next) => {
   });
 });
 
-//Admin : get All users
+//Admin : get All users - api/v1/admin/users
 
 exports.getAllUsers = catchAsyncError(async (req, res, next) => {
   const users = await User.find();
@@ -180,7 +180,7 @@ exports.getAllUsers = catchAsyncError(async (req, res, next) => {
   });
 });
 
-//Admin : get specific users
+//Admin : get specific users - api/v1/admin/user/:id
 
 exports.getUser = catchAsyncError(async (req, res, next) => {
   const user = await User.findById(req.params.id);
@@ -194,7 +194,7 @@ exports.getUser = catchAsyncError(async (req, res, next) => {
   });
 });
 
-//Admin: update User
+//Admin: update User - api/v1/admin/user/:id
 
 exports.updateUser = catchAsyncError(async (req, res, next) => {
   const newUserData = {
@@ -213,7 +213,7 @@ exports.updateUser = catchAsyncError(async (req, res, next) => {
   });
 });
 
-//Admin : delete user
+//Admin : delete user - api/v1/admin/user/:id
 
 exports.deleteUser = catchAsyncError(async (req, res, next) => {
   const user = await User.findById(req.params.id);
