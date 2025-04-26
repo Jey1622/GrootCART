@@ -125,10 +125,47 @@ exports.resetPassword = catchAsyncError(async (req, res, next) => {
 // get user profile - /api/v1/myprofile
 
 exports.getUserProfile = catchAsyncError(async (req, res, next) => {
-  const user=await User.findById(req.user.id)
+  const user = await User.findById(req.user.id);
+  res.status(200).json({
+    success: true,
+    user,
+  });
+});
+
+//change password - /api/v1/password/change
+
+exports.changePassword = catchAsyncError(async (req, res, next) => {
+  const user = await User.findById(req.user.id).select("+password");
+
+  //check old password
+
+  if (!(await user.isValidPassword(req.body.oldPassword))) {
+    console.log("wrongPassword");
+    return next(new ErrorHandler("incorrect Old Password", 401));
+  }
+
+  //assigning new password
+  user.password = req.body.password;
+  res.status(200).json({
+    success: true,
+  });
+});
+
+
+//update Profile
+
+exports.updateProfile=catchAsyncError(async (req,res,next)=>{
+  const newUserData={
+    name:req.body.name,
+    email:req.body.email
+  }
+  const user=await User.findByIdAndUpdate(req.user.id,newUserData,{
+    new:true,
+    runValidators:true
+  })
+
   res.status(200).json({
     success:true,
     user
   })
-});
-
+})
