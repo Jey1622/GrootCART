@@ -1,0 +1,83 @@
+[
+    {
+        "name":"Moto g45 5G",
+        "price":11999,
+        "description":"Moto g45 is powerful device with 5G Suport band",
+        "ratings":4.5,
+        "images":[
+            {
+                "image":"product_96439564.jpg"
+            }
+        ],
+        "category":"Moblie Phones",
+        "seller":"Amazon",
+        "stock":5,
+        "numOfReviews":15,
+        "reviews":[]
+    },
+    {
+        "name":"Acer Aspire A715-79G",
+        "price":54000,
+        "description":"Acer Aspire A715-79G model is one of the best High performance laptop",
+        "ratings":4.6,
+        "images":[
+            {
+                "image":"product_856456209.jpg"
+            }
+        ],
+        "category":"Laptops",
+        "seller":"Flipcart",
+        "stock":7,
+        "numOfReviews":13,
+        "reviews":[]
+    },
+    {
+        "name":"FireBolts Rockers 110",
+        "price":1299,
+        "description":"FireBolts Rockers 110 is best strio wireless Headphone",
+        "ratings":4.2,
+        "images":[
+            {
+                "image":"product_75520736.jpg"
+            }
+        ],
+        "category":"Headphones",
+        "seller":"Amazon",
+        "stock":7,
+        "numOfReviews":8,
+        "reviews":[]
+    },
+    {
+        "name":"Samsung",
+        "price":8499,
+        "description":"This is a  Smart TV ",
+        "ratings":4.0,
+        "images":[
+            {
+                "image":"product_397552046.jpg"
+            }
+        ],
+        "category":"Television",
+        "seller":"Flipcart",
+        "stock":2,
+        "numOfRviews":11,
+        "reviews":[]
+    },
+    {
+        "name":"Working Table",
+        "price":2000,
+        "description":"working wooden table",
+        "ratings":4.5,
+        "images":[
+            {
+                "image":"product_30967933.jpg"
+            }
+        ],
+        "category":"Home",
+        "seller":"Amazon",
+        "stock":5,
+        "numOfReviews":15,
+        "reviews":[]
+    }
+]
+   

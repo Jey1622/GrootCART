@@ -1,0 +1,25 @@
+{
+  "name": "grootcart",
+  "version": "1.0.0",
+  "description": "ecormmerce using MERN stack",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon backend/server.js",
+    "dev": "set NODE_ENV=development&&nodemon backend/server.js",
+    "prod": "set NODE_ENV=production&&nodemon backend/server.js",
+    "seeder": "node backend/utils/seeder.js"
+  },
+  "author": "Jeyaraman",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.7",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.7.3",
+    "nodemailer": "^6.9.16",
+    "validator": "^13.12.0"
+  }
+}
