@@ -1,15 +1,20 @@
 import { Fragment } from "react";
+import MetaData from "./layouts/MetaData";
 
 export default function Home() {
   return (
     <Fragment>
+       <MetaData title={'Buy Best Products'} />
       <h1 id="products_heading">Latest Products</h1>
 
       <section id="products" className="container mt-5">
         <div className="row">
           <div className="col-sm-12 col-md-6 col-lg-3 my-3">
             <div className="card p-3 rounded">
-              <img className="card-img-top mx-auto" src="./images/products/1.jpg" />
+              <img
+                className="card-img-top mx-auto"
+                src="./images/products/1.jpg"
+              />
               <div className="card-body d-flex flex-column">
                 <h5 className="card-title">
                   <a href="">
@@ -33,7 +38,10 @@ export default function Home() {
 
           <div className="col-sm-12 col-md-6 col-lg-3 my-3">
             <div className="card p-3 rounded">
-              <img className="card-img-top mx-auto" src="./images/products/2.jpg" />
+              <img
+                className="card-img-top mx-auto"
+                src="./images/products/2.jpg"
+              />
               <div className="card-body d-flex flex-column">
                 <h5 className="card-title">
                   <a href="">
@@ -59,7 +67,10 @@ export default function Home() {
 
           <div className="col-sm-12 col-md-6 col-lg-3 my-3">
             <div className="card p-3 rounded">
-              <img className="card-img-top mx-auto" src="./images/products/3.jpg" />
+              <img
+                className="card-img-top mx-auto"
+                src="./images/products/3.jpg"
+              />
               <div className="card-body d-flex flex-column">
                 <h5 className="card-title">
                   <a href="">
@@ -84,7 +95,10 @@ export default function Home() {
 
           <div className="col-sm-12 col-md-6 col-lg-3 my-3">
             <div className="card p-3 rounded">
-              <img className="card-img-top mx-auto" src="./images/products/4.jpg" />
+              <img
+                className="card-img-top mx-auto"
+                src="./images/products/4.jpg"
+              />
               <div className="card-body d-flex flex-column">
                 <h5 className="card-title">
                   <a href="">
@@ -101,7 +115,12 @@ export default function Home() {
                 </div>
                 <p className="card-text">$15.46</p>
 
-                <a type="button" href="#" id="view_btn" className="btn btn-block">
+                <a
+                  type="button"
+                  href="#"
+                  id="view_btn"
+                  className="btn btn-block"
+                >
                   View Details
                 </a>
               </div>
@@ -110,7 +129,10 @@ export default function Home() {
 
           <div className="col-sm-12 col-md-6 col-lg-3 my-3">
             <div className="card p-3 rounded">
-              <img className="card-img-top mx-auto" src="./images/products/5.jpg" />
+              <img
+                className="card-img-top mx-auto"
+                src="./images/products/5.jpg"
+              />
               <div className="card-body d-flex flex-column">
                 <h5 className="card-title">
                   <a href="">Campus Men's Maxico Running Shoes</a>
