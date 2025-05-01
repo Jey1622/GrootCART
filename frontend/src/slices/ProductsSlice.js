@@ -14,7 +14,7 @@ const productSlice = createSlice({
     productsSuccess(state, action) {
       return {
         loading: false,
-        product: action.payload.products,
+        products: action.payload.products,
       };
     },
     productsFail(state, action) {

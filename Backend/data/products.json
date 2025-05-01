@@ -3,10 +3,10 @@
         "name":"Moto g45 5G",
         "price":11999,
         "description":"Moto g45 is powerful device with 5G Suport band",
-        "ratings":4.5,
+        "rating":4.5,
         "images":[
             {
-                "image":"product_96439564.jpg"
+                "image":"/images/products/1.jpg"
             }
         ],
         "category":"Moblie Phones",
@@ -19,10 +19,10 @@
         "name":"Acer Aspire A715-79G",
         "price":54000,
         "description":"Acer Aspire A715-79G model is one of the best High performance laptop",
-        "ratings":4.6,
+        "rating":4.6,
         "images":[
             {
-                "image":"product_856456209.jpg"
+                "image":"/images/products/2.jpg"
             }
         ],
         "category":"Laptops",
@@ -35,10 +35,10 @@
         "name":"FireBolts Rockers 110",
         "price":1299,
         "description":"FireBolts Rockers 110 is best strio wireless Headphone",
-        "ratings":4.2,
+        "rating":4.2,
         "images":[
             {
-                "image":"product_75520736.jpg"
+                "image":"/images/products/3.jpg"
             }
         ],
         "category":"Headphones",
@@ -51,10 +51,10 @@
         "name":"Samsung",
         "price":8499,
         "description":"This is a  Smart TV ",
-        "ratings":4.0,
+        "rating":4.0,
         "images":[
             {
-                "image":"product_397552046.jpg"
+                "image":"/images/products/4.jpg"
             }
         ],
         "category":"Television",
@@ -67,10 +67,10 @@
         "name":"Working Table",
         "price":2000,
         "description":"working wooden table",
-        "ratings":4.5,
+        "rating":4.5,
         "images":[
             {
-                "image":"product_30967933.jpg"
+                "image":"/images/products/5.jpg"
             }
         ],
         "category":"Home",
