@@ -1,6 +1,15 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getProducts } from "../actions/productsAction";
 
 export default function Home() {
+
+const dispatch=useDispatch()
+
+useEffect(()=>{
+dispatch(getProducts)
+},[])
+
   return (
     <Fragment>
       <h1 id="products_heading">Latest Products</h1>
