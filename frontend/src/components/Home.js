@@ -9,7 +9,7 @@ export default function Home() {
   const dispatch = useDispatch();
 
   const { products, loading, error } = useSelector(
-    (state) => state.productState
+    (state) => state.productsState
   );
   console.log(products);
   useEffect(() => {
