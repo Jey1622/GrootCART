@@ -3,15 +3,23 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../actions/productsAction";
 import Loader from "./layouts/Loader";
 import Product from "./product/Product";
+import { toast } from "react-toastify";
 
 export default function Home() {
   const dispatch = useDispatch();
 
-  const { products, loading } = useSelector((state) => state.productState);
+  const { products, loading, error } = useSelector(
+    (state) => state.productState
+  );
   console.log(products);
   useEffect(() => {
+    if (error) {
+      return toast.error(error, {
+        position: "bottom-center",
+      });
+    } 
     dispatch(getProducts);
-  }, []);
+  }, [error]);
 
   return (
     <Fragment>
@@ -24,9 +32,7 @@ export default function Home() {
           <section id="products" className="container mt-5">
             <div className="row">
               {products &&
-                products.map((product) => (
-                  <Product product={product} />
-                ))}
+                products.map((product) => <Product product={product} />)}
             </div>
           </section>
         </Fragment>

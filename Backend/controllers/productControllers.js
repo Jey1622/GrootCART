@@ -88,9 +88,9 @@ exports.createReview = catchAsyncError(async (req, res, next) => {
     comment,
   };
 
-  const product =await Product.findById(productId);
+  const product = await Product.findById(productId);
   //finding user reviews exists
-  const isReviewed = product.reviews.find(review => {
+  const isReviewed = product.reviews.find((review) => {
     return review.user.toString() == req.user.id.toString();
   });
 
@@ -115,52 +115,51 @@ exports.createReview = catchAsyncError(async (req, res, next) => {
     }, 0) / product.reviews.length;
 
   product.rating = isNaN(product.rating) ? 0 : product.rating;
-    
-  await product.save({validateBeforeSave:false})
+
+  await product.save({ validateBeforeSave: false });
 
   res.status(200).json({
-    success:true,
-
-  })
+    success: true,
+  });
 });
 
-
 //get reviews -api/v1/reviews?id={productId}
-exports.getReview=catchAsyncError(async (req, res, next) => {
-  const product=await Product.findById(req.query.id)
+exports.getReview = catchAsyncError(async (req, res, next) => {
+  const product = await Product.findById(req.query.id);
 
   res.status(200).json({
-    success:true,
-    reviews:product.reviews
-  })
-}) 
+    success: true,
+    reviews: product.reviews,
+  });
+});
 
 //delete review - api/v1/review?productId={product}
-exports.deleteReview=catchAsyncError(async (req, res, next) => {
-  const product=await Product.findById(req.query.productId)
+exports.deleteReview = catchAsyncError(async (req, res, next) => {
+  const product = await Product.findById(req.query.productId);
 
   //filtering the reviews which does not match deleting id
-  const reviews=product.reviews.filter(review=>{
-    return review._id.toString() !==req.query.id.toString()
-  })
+  const reviews = product.reviews.filter((review) => {
+    return review._id.toString() !== req.query.id.toString();
+  });
 
   //find number of reviews
-  const numOfReviews=reviews.length
-  
+  const numOfReviews = reviews.length;
+
   //finding the average with the filtered reviews
-  let rating=reviews.reduce((acc, review) => {
-    return review.rating + acc;
-  }, 0) / product.reviews.length;
-  rating=isNaN(rating) ? 0 : rating
+  let rating =
+    reviews.reduce((acc, review) => {
+      return review.rating + acc;
+    }, 0) / product.reviews.length;
+  rating = isNaN(rating) ? 0 : rating;
 
   //save the product
-  await Product.findByIdAndUpdate(req.query.productId,{
+  await Product.findByIdAndUpdate(req.query.productId, {
     rating,
     numOfReviews,
-    reviews
-  })
+    reviews,
+  });
 
   res.status(200).json({
-    success:true
-  })
-})
+    success: true,
+  });
+});
