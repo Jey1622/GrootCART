@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 function Search() {
   const navigate = useNavigate();
-  const location =useLocation()
+  const location = useLocation();
   const [keyword, setKeyword] = useState();
 
   const searchHandler = (e) => {
@@ -15,11 +15,11 @@ function Search() {
     setKeyword("");
   };
 
-  useEffect(()=>{
-    if(location.pathname=='/'){
-      clearKeyword()
+  useEffect(() => {
+    if (location.pathname === "/") {
+      clearKeyword();
     }
-  },[location])
+  }, [location]);
   return (
     <form onSubmit={searchHandler}>
       <div className="input-group">

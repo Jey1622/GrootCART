@@ -19,7 +19,7 @@
         "reviews":[]
     },
     {
-        "name":"Acer Aspire A715-79G",
+        "name":"Acer Aspire A715-79G Laptop",
         "price":54000,
         "description":"Acer Aspire A715-79G model is one of the best High performance laptop",
         "rating":4.6,
@@ -63,7 +63,39 @@
         "category":"Television",
         "seller":"Flipcart",
         "stock":2,
-        "numOfRviews":11,
+        "numOfReviews":11,
+        "reviews":[]
+    },
+    {
+        "name":"Samsung M13",
+        "price":14500,
+        "description":"This is a  Smart phone ",
+        "rating":4.0,
+        "images":[
+            {
+                "image":"/images/products/4.jpg"
+            }
+        ],
+        "category":"Moblie Phones",
+        "seller":"Flipcart",
+        "stock":3,
+        "numOfReviews":11,
+        "reviews":[]
+    },
+    {
+        "name":"Dell Laptop",
+        "price":68000,
+        "description":"Dell model is one of the best High performance laptop",
+        "rating":4.6,
+        "images":[
+            {
+                "image":"/images/products/2.jpg"
+            }
+        ],
+        "category":"Laptops",
+        "seller":"Flipcart",
+        "stock":9,
+        "numOfReviews":8,
         "reviews":[]
     },
     {
@@ -80,6 +112,22 @@
         "seller":"Amazon",
         "stock":5,
         "numOfReviews":15,
+        "reviews":[]
+    },
+    {
+        "name":"Mac Book Laptop",
+        "price":100000,
+        "description":"Mac Book model is one of the best High performance laptop",
+        "rating":4.6,
+        "images":[
+            {
+                "image":"/images/products/2.jpg"
+            }
+        ],
+        "category":"Laptops",
+        "seller":"Flipcart",
+        "stock":7,
+        "numOfReviews":18,
         "reviews":[]
     }
 ]
