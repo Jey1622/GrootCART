@@ -21,6 +21,7 @@ export default function ProductSearch() {
   const [currentPage, setCurrentPage] = useState(1);
   const [price, setPrice] = useState([1, 100000]);
   const [category, setCategory] = useState(null);
+  const [rating, setRating] = useState(0);
   const { keyword } = useParams();
   const Categories = [
     "Electronics",
@@ -46,8 +47,8 @@ export default function ProductSearch() {
         position: "bottom-center",
       });
     }
-    dispatch(getProducts(category,price, keyword, currentPage));
-  }, [error, dispatch, currentPage, keyword, price,category]);
+    dispatch(getProducts(category, price, keyword, rating, currentPage));
+  }, [error, dispatch, currentPage, keyword, price, category, rating]);
 
   return (
     <Fragment>
@@ -97,11 +98,34 @@ export default function ProductSearch() {
                           listStyleType: "none",
                         }}
                         key={category}
-                        onClick={()=>{
-                          setCategory(category)
+                        onClick={() => {
+                          setCategory(category);
                         }}
                       >
                         {category}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <hr className="my-5" />
+                {/* Rating Filter */}
+                <div className="mt-5">
+                  <h4 className="mb-3">Ratings</h4>
+                  <ul className="pl-0">
+                    {[5, 4, 3, 2, 1].map((star) => (
+                      <li
+                        style={{
+                          cursor: "pointer",
+                          listStyleType: "none",
+                        }}
+                        key={star}
+                        onClick={() => {
+                          setRating(star);
+                        }}
+                      >
+                        <div className="rating-outer">
+                        <div className="rating-inner" style={{width:`${star*20}%`}}></div>
+                        </div>
                       </li>
                     ))}
                   </ul>

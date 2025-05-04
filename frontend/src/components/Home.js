@@ -25,7 +25,7 @@ export default function Home() {
         position: "bottom-center",
       });
     }
-    dispatch(getProducts(null,null,null,currentPage));
+    dispatch(getProducts(null,null,null,null,currentPage));
   }, [error, dispatch,currentPage]);
 
   return (

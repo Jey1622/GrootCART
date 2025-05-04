@@ -118,7 +118,7 @@
         "name":"Mac Book Laptop",
         "price":100000,
         "description":"Mac Book model is one of the best High performance laptop",
-        "rating":4.6,
+        "rating":3,
         "images":[
             {
                 "image":"/images/products/2.jpg"
