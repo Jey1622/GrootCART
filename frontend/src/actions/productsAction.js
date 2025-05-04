@@ -5,7 +5,7 @@ import {
   productsSuccess,
 } from "../slices/ProductsSlice";
 
-export const getProducts = (price,keyword, currentPage) => async (dispatch) => {
+export const getProducts = (category,price,keyword, currentPage) => async (dispatch) => {
   try {
     let link = `/api/v1/products?page=${currentPage}`;
 
@@ -15,6 +15,9 @@ export const getProducts = (price,keyword, currentPage) => async (dispatch) => {
 
     if (price) {
       link += `&price[gte]=${price[0]}&price[lte]=${price[1]}`;
+    }
+    if (category) {
+      link += `&category=${category}`;
     }
 
     dispatch(productsRequest());

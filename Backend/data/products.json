@@ -12,7 +12,7 @@
                 "image":"/images/products/2.jpg"
             }
         ],
-        "category":"Moblie Phones",
+        "category":"Mobile Phones",
         "seller":"Amazon",
         "stock":5,
         "numOfReviews":15,
@@ -76,7 +76,7 @@
                 "image":"/images/products/4.jpg"
             }
         ],
-        "category":"Moblie Phones",
+        "category":"Mobile Phones",
         "seller":"Flipcart",
         "stock":3,
         "numOfReviews":11,

@@ -20,7 +20,23 @@ export default function ProductSearch() {
 
   const [currentPage, setCurrentPage] = useState(1);
   const [price, setPrice] = useState([1, 100000]);
+  const [category, setCategory] = useState(null);
   const { keyword } = useParams();
+  const Categories = [
+    "Electronics",
+    "Mobile Phones",
+    "Laptops",
+    "Accessories",
+    "Headphones",
+    "Television",
+    "Food",
+    "Books",
+    "Cloths/Shoes",
+    "Beauty/Health",
+    "Sports",
+    "Outdoor",
+    "Home",
+  ];
   const setCurrentPageNo = (pageNo) => {
     setCurrentPage(pageNo);
   };
@@ -30,8 +46,8 @@ export default function ProductSearch() {
         position: "bottom-center",
       });
     }
-    dispatch(getProducts(price,keyword, currentPage));
-  }, [error, dispatch, currentPage, keyword,price]);
+    dispatch(getProducts(category,price, keyword, currentPage));
+  }, [error, dispatch, currentPage, keyword, price,category]);
 
   return (
     <Fragment>
@@ -44,6 +60,7 @@ export default function ProductSearch() {
           <section id="products" className="container mt-5">
             <div className="row">
               <div className="col-6 col-md-3 mb-5 mt-5">
+                {/* Price Filter */}
                 <div className="px-5">
                   <Slider
                     range={true}
@@ -54,7 +71,7 @@ export default function ProductSearch() {
                     min={1}
                     max={100000}
                     defaultValue={price}
-                    onChangeComplete ={(price) => {
+                    onChangeComplete={(price) => {
                       setPrice(price);
                     }}
                     handleRender={(renderProps) => {
@@ -67,6 +84,27 @@ export default function ProductSearch() {
                       );
                     }}
                   />
+                </div>
+                <hr className="my-5" />
+                {/* Category Filter */}
+                <div className="mt-5">
+                  <h3>Categories</h3>
+                  <ul className="pl-0">
+                    {Categories.map((category) => (
+                      <li
+                        style={{
+                          cursor: "pointer",
+                          listStyleType: "none",
+                        }}
+                        key={category}
+                        onClick={()=>{
+                          setCategory(category)
+                        }}
+                      >
+                        {category}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
               <div className="col-6 col-md-9">
