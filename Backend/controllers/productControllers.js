@@ -12,9 +12,11 @@ exports.getProducts = async (req, res, next) => {
     .paginate(resPerPage);
 
   const products = await apiFeatures.query;
+  const totalProductCount=await Product.countDocuments({})
   res.status(200).json({
     success: true,
-    count: products.length,
+    count: totalProductCount,
+    resPerPage,
     products,
   });
 };
