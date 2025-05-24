@@ -6,6 +6,7 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import ProductDetail from "./components/product/ProductDetail";
 import ProductSearch from "./components/product/ProductSearch";
+import Login from "./components/user/Login";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/search/:keyword" element={<ProductSearch />} />
             <Route path="/product/:id" element={<ProductDetail />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </div>
         <Footer />

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { loginFail, loginRequest, loginSuccess } from "../slices/AuthSlice";
+import { clearError, loginFail, loginRequest, loginSuccess } from "../slices/AuthSlice";
 
 export const login = (email, password) => async (dispatch) => {
   try {
@@ -7,6 +7,10 @@ export const login = (email, password) => async (dispatch) => {
     const { data } = await axios.post(`/api/v1/login`, { email, password });
     dispatch(loginSuccess(data));
   } catch (error) {
-    dispatch(loginFail(error.response.message.date));
+    dispatch(loginFail(error.response.data.message));
   }
 };
+
+export const clearAuthError=dispatch => {
+    dispatch(clearError())
+}
