@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getProducts } from "../../actions/productsAction";
+import { getProducts } from "../../actions/productActions";
 import Loader from "../layouts/Loader";
 import Product from "../product/Product";
 import { toast } from "react-toastify";
