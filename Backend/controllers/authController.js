@@ -7,11 +7,11 @@ const crypto = require("crypto");
 
 //Register user -/api/v1/register
 exports.registerUser = catchAsyncError(async (req, res, next) => {
-  const { name, email, password} = req.body;
+  const { name, email, password } = req.body;
 
   let avatar;
-  if(req.file){
-    avatar=`${process.env.BACKEND_URL}/uploads/users/${req.file.originalname}`
+  if (req.file) {
+    avatar = `${process.env.BACKEND_URL}/uploads/users/${req.file.originalname}`;
   }
   const user = await User.create({
     name,
@@ -159,10 +159,15 @@ exports.changePassword = catchAsyncError(async (req, res, next) => {
 //update Profile
 
 exports.updateProfile = catchAsyncError(async (req, res, next) => {
-  const newUserData = {
+  let newUserData = {
     name: req.body.name,
     email: req.body.email,
   };
+  let avatar;
+  if (req.file) {
+    avatar = `${process.env.BACKEND_URL}/uploads/users/${req.file.originalname}`;
+    newUserData = { ...newUserData, avatar };
+  }
   const user = await User.findByIdAndUpdate(req.user.id, newUserData, {
     new: true,
     runValidators: true,
