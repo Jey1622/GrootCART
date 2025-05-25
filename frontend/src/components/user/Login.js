@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { clearAuthError, login } from "../../actions/userAction";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -74,9 +74,9 @@ function Login() {
               LOGIN
             </button>
 
-            <a href="#" className="float-right mt-3">
+            <Link to="/register" className="float-right mt-3">
               New User?
-            </a>
+            </Link>
           </form>
         </div>
       </div>

@@ -1,4 +1,17 @@
 const express = require("express");
+const multer = require("multer");
+const path = require("path");
+
+const upload = multer({
+  storage: multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, path.join(__dirname, "..", "uploads/users"));
+    },
+    filename: function (req, file, cb) {
+      cb(null, file.originalname);
+    },
+  }),
+});
 const {
   registerUser,
   loginUser,
@@ -13,10 +26,13 @@ const {
   updateUser,
   deleteUser,
 } = require("../controllers/authController");
-const { isAuthenticatedUser ,autherizeRoles} = require("../middlewares/authenticate");
+const {
+  isAuthenticatedUser,
+  autherizeRoles,
+} = require("../middlewares/authenticate");
 const router = express.Router();
 
-router.route("/register").post(registerUser);
+router.route("/register").post(upload.single('avatar'),registerUser);
 router.route("/login").post(loginUser);
 router.route("/logout").get(logoutUser);
 router.route("/password/forgot").post(forgotPassword);
@@ -27,9 +43,12 @@ router.route("/update").put(isAuthenticatedUser, updateProfile);
 
 //Admin routes
 
-router.route("/admin/users").get(isAuthenticatedUser, autherizeRoles("admin"), getAllUsers);
-router.route("/admin/user/:id")
-                              .get(isAuthenticatedUser, autherizeRoles("admin"), getUser)
-                              .put(isAuthenticatedUser, autherizeRoles("admin"), updateUser)
-                              .delete(isAuthenticatedUser, autherizeRoles("admin"), deleteUser);
+router
+  .route("/admin/users")
+  .get(isAuthenticatedUser, autherizeRoles("admin"), getAllUsers);
+router
+  .route("/admin/user/:id")
+  .get(isAuthenticatedUser, autherizeRoles("admin"), getUser)
+  .put(isAuthenticatedUser, autherizeRoles("admin"), updateUser)
+  .delete(isAuthenticatedUser, autherizeRoles("admin"), deleteUser);
 module.exports = router;
