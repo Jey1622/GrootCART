@@ -24,15 +24,17 @@ function Login() {
       navigate("/");
     }
     if (error) {
-      return toast(error, {
-        position: "bottom-center",
-        type:'error',
-        onOpen:()=>{
-            dispatch(clearAuthError)
-        }
-      });
+      return () => {
+        toast(error, {
+          position: "bottom-center",
+          type: "error",
+          onOpen: () => {
+            dispatch(clearAuthError);
+          },
+        });
+      };
     }
-  }, [error,isAuthenticated,navigate,dispatch]);
+  }, [error, isAuthenticated, navigate, dispatch]);
   return (
     <Fragment>
       <div className="row wrapper">
@@ -61,9 +63,9 @@ function Login() {
               />
             </div>
 
-            <a href="#" className="float-right mb-4">
+            <Link to="/password/forgot" className="float-right mb-4">
               Forgot Password?
-            </a>
+            </Link>
 
             <button
               id="login_button"
