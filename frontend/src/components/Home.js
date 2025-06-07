@@ -14,19 +14,19 @@ export default function Home() {
   );
 
   const [currentPage, setCurrentPage] = useState(1);
-  const setCurrentPageNo = (pageNo) =>{
-
-    setCurrentPage(pageNo)
-   
-}
+  const setCurrentPageNo = (pageNo) => {
+    setCurrentPage(pageNo);
+  };
   useEffect(() => {
     if (error) {
-      return toast.error(error, {
-        position: "bottom-center",
-      });
+      return () => {
+        toast.error(error, {
+          position: "bottom-center",
+        });
+      };
     }
-    dispatch(getProducts(null,null,null,null,currentPage));
-  }, [error, dispatch,currentPage]);
+    dispatch(getProducts(null, null, null, null, currentPage));
+  }, [error, dispatch, currentPage]);
 
   return (
     <Fragment>
