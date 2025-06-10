@@ -37,7 +37,7 @@ function Login() {
         });
       };
     }
-  }, [error, isAuthenticated, navigate, dispatch]);
+  }, [error, isAuthenticated, navigate, dispatch,redirect]);
   return (
     <Fragment>
       <div className="row wrapper">

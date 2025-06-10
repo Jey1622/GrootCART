@@ -61,7 +61,7 @@ function Payment() {
     //   });
     //   return;
     // }
-  }, []);
+  }, [shippingInfo, navigate]);
 
   const submitHandler = async (e) => {
     e.preventDefault();
