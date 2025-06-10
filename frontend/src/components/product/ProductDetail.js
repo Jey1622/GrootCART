@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getProduct } from "../../actions/productActions";
 import Loader from "../layouts/Loader";
+import { addCartItem } from "../../actions/cartActions";
 // import { Carousel } from "react-bootstrap";
 
 export default function ProductDetail() {
@@ -14,23 +15,23 @@ export default function ProductDetail() {
   const [quantity, setQuantity] = useState(1);
 
   const increaseQty = () => {
-    const count =document.querySelector('.count')
+    const count = document.querySelector(".count");
 
-    if(product.stock === 0 || count.valueAsNumber >= product.stock){
-      return
-    } else{
-      const qty=count.valueAsNumber+1;
+    if (product.stock === 0 || count.valueAsNumber >= product.stock) {
+      return;
+    } else {
+      const qty = count.valueAsNumber + 1;
       setQuantity(qty);
     }
   };
 
   const decreaseQty = () => {
-    const count =document.querySelector('.count')
+    const count = document.querySelector(".count");
 
-    if(count.valueAsNumber === 1){
-      return
-    } else{
-      const qty=count.valueAsNumber-1;
+    if (count.valueAsNumber === 1) {
+      return;
+    } else {
+      const qty = count.valueAsNumber - 1;
       setQuantity(qty);
     }
   };
@@ -83,7 +84,9 @@ export default function ProductDetail() {
 
               <p id="product_price">&#8377;{product.price} </p>
               <div className="stockCounter d-inline">
-                <span className="btn btn-danger minus" onClick={decreaseQty}>-</span>
+                <span className="btn btn-danger minus" onClick={decreaseQty}>
+                  -
+                </span>
 
                 <input
                   type="number"
@@ -92,13 +95,16 @@ export default function ProductDetail() {
                   readOnly
                 />
 
-                <span className="btn btn-primary plus" onClick={increaseQty}>+</span>
+                <span className="btn btn-primary plus" onClick={increaseQty}>
+                  +
+                </span>
               </div>
               <button
                 type="button"
                 id="cart_btn"
                 className="btn btn-primary d-inline ml-4"
-                disabled={product.stock==0?true:false}
+                disabled={product.stock === 0 ? true : false}
+                onClick={() => dispatch(addCartItem(product._id, quantity))}
               >
                 Add to Cart
               </button>
