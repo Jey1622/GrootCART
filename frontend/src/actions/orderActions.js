@@ -21,7 +21,7 @@ export const createOrder = (order) => async (dispatch) => {
 export const userOrders = async (dispatch) => {
   try {
     dispatch(userOrdersRequest());
-    const { data } = await axios.get("api/v1/myOrders", order);
+    const { data } = await axios.get("api/v1/myOrders");
     dispatch(userOrdersSuccess(data));
   } catch (error) {
     dispatch(userOrdersFail(error.response.data.message));
