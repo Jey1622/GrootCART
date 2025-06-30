@@ -1,14 +1,18 @@
 import { useElements, useStripe } from "@stripe/react-stripe-js";
-import { CardNumberElement, CardExpiryElement, CardCvcElement } from "@stripe/react-stripe-js";
+import {
+  CardNumberElement,
+  CardExpiryElement,
+  CardCvcElement,
+} from "@stripe/react-stripe-js";
 import axios from "axios";
 import { useEffect } from "react";
-import {useDispatch, useSelector} from 'react-redux';
-import {useNavigate} from 'react-router-dom'
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { orderCompleted } from "../../slices/cartSlice";
-import {validateShipping} from '../cart/Shipping';
-// import {createOrder} from '../../actions/orderAction'
-// import { clearError as clearOrderError } from "../../slices/orderSlice";
+import { validateShipping } from "../cart/Shipping";
+import { createOrder } from "../../actions/orderActions";
+import { clearError as clearOrderError } from "../../slices/orderSlice";
 
 function Payment() {
   const stripe = useStripe();
@@ -20,10 +24,13 @@ function Payment() {
   const { items: cartItems, shippingInfo } = useSelector(
     (state) => state.cartState
   );
-//   const { error: orderError } = useSelector((state) => state.orderState);
-
+  const { error: orderError } = useSelector((state) => state.orderState);
+  let amount = 0;
+  if (orderInfo.totalPrice) {
+    amount = Math.round(orderInfo.totalPrice * 100);
+  }
   const paymentData = {
-    amount: Math.round(orderInfo.totalPrice * 100),
+    amount: amount,
     shipping: {
       name: user.name,
       address: {
@@ -51,16 +58,16 @@ function Payment() {
 
   useEffect(() => {
     validateShipping(shippingInfo, navigate);
-    // if (orderError) {
-    //   toast(orderError, {
-    //     position: "bottom-center",
-    //     type: "error",
-        // onOpen: () => {
-        //   dispatch(clearOrderError());
-        // },
-    //   });
-    //   return;
-    // }
+    if (orderError) {
+      toast(orderError, {
+        position: "bottom-center",
+        type: "error",
+        onOpen: () => {
+          dispatch(clearOrderError());
+        },
+      });
+      return;
+    }
   }, [shippingInfo, navigate]);
 
   const submitHandler = async (e) => {
@@ -96,7 +103,7 @@ function Payment() {
             status: result.paymentIntent.status,
           };
           dispatch(orderCompleted());
-        //   dispatch(createOrder(order));
+          dispatch(createOrder(order));
 
           navigate("/order/success");
         } else {
