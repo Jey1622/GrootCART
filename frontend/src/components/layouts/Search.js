@@ -29,7 +29,7 @@ function Search() {
           className="form-control"
           placeholder="Enter Product Name ..."
           onChange={(e) => setKeyword(e.target.value)}
-          value={keyword}
+          value={keyword || ''}
         />
         <div className="input-group-append">
           <button id="search_btn" className="btn">
